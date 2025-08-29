@@ -31,9 +31,10 @@
   --sidebar-accent-foreground: #212121;
   --sidebar-border: #e0e0e0;
   --sidebar-ring: #c83838;
-  --font-sans: Roboto;
-  --font-serif: Roboto Slab;
+  --font-sans: "Open Sans";
+  --font-serif: "Open Sans";
   --font-mono: Roboto Mono;
+  --font-heading: "Bebas Neue";
   --radius: 0.75rem;
   --shadow-2xs: 0px 4px 16px -2px hsl(0 0% 0% / 0.05);
   --shadow-xs: 0px 4px 16px -2px hsl(0 0% 0% / 0.05);
@@ -85,9 +86,10 @@
   --sidebar-accent-foreground: #f5f5f5;
   --sidebar-border: #2d2d2d;
   --sidebar-ring: #d64545;
-  --font-sans: Roboto;
-  --font-serif: Roboto Slab;
+  --font-sans: "Open Sans";
+  --font-serif: "Open Sans";
   --font-mono: Roboto Mono;
+  --font-heading: "Bebas Neue";
   --radius: 0.75rem;
   --shadow-2xs: 0px 4px 16px -2px hsl(0 0% 0% / 0.1);
   --shadow-xs: 0px 4px 16px -2px hsl(0 0% 0% / 0.1);

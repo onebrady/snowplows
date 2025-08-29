@@ -485,12 +485,7 @@ export function SinglePageKnowledge({ sections, loading = false }: SinglePageKno
                       : 'bg-white border border-gray-200 hover:border-blue-300 text-gray-700'
                   }`}
                 >
-                  {/* Completion indicator */}
-                  {stats && stats.completed > 0 && (
-                    <div className="absolute top-1.5 right-1.5 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-[10px] font-bold">{completionPercent}%</span>
-                    </div>
-                  )}
+                  {/* Completion indicator removed per request */}
                   
                   {/* Bookmark indicator */}
                   {stats && stats.bookmarked > 0 && (
@@ -504,7 +499,7 @@ export function SinglePageKnowledge({ sections, loading = false }: SinglePageKno
                   }`}>
                     <IconComponent className={`w-4 h-4 md:w-5 md:h-5 ${isActive ? 'text-white' : 'text-blue-600'}`} />
                   </div>
-                  <h3 className={`font-semibold text-[12px] md:text-sm lg:text-[15px] mb-0.5 truncate ${
+                  <h3 className={`font-semibold text-[12px] md:text-sm lg:text-[23px] mb-0.5 truncate ${
                     isActive ? 'text-white' : 'text-gray-800'
                   }`}>
                     {section.title}

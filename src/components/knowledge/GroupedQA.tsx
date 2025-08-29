@@ -91,7 +91,7 @@ export function GroupedQA({
               )}
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-4">
             <div className="space-y-7">
               {g.qaIds.map((qid, idx) => {
                 const qa = byId.get(qid);
@@ -150,7 +150,7 @@ export function GroupedQA({
                       {expanded.has(qa.id) && (
                         <div
                           id={`qa-answer-${qa.id}`}
-                          className="text-[16px] text-foreground/80 mt-3 leading-[1.7] prose prose-sm max-w-none"
+                          className="text-[16px] text-foreground/80 mt-1 leading-[1.7] prose prose-sm max-w-none"
                           dangerouslySetInnerHTML={{ __html: qa.answer }}
                         />
                       )}

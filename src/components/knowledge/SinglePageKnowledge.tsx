@@ -472,7 +472,6 @@ export function SinglePageKnowledge({ sections, loading = false }: SinglePageKno
               const IconComponent = sectionIcons[section.slug as keyof typeof sectionIcons] || Snowflake;
               const isActive = activeSection === section.slug;
               const stats = sectionStats[section.slug];
-              const completionPercent = stats ? Math.round((stats.completed / stats.total) * 100) : 0;
               
               return (
                 <button

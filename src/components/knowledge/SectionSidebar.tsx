@@ -38,9 +38,9 @@ export function SectionSidebar({
       {/* Sidebar Toggle Button */}
       <button
         onClick={onToggle}
-        className={`fixed top-1/2 transform -translate-y-1/2 z-50 bg-blue-600 text-white p-3 rounded-r-lg shadow-lg transition-all duration-300 ${
+        className={`fixed top-1/2 transform -translate-y-1/2 z-50 bg-secondary text-secondary-foreground p-3 rounded-r-lg shadow-lg transition-all duration-300 ${
           isVisible ? 'left-80' : 'left-0'
-        } hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300`}
+        } hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-secondary/30`}
         aria-label={isVisible ? "Close sidebar" : "Open sidebar"}
       >
         <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${
@@ -54,9 +54,9 @@ export function SectionSidebar({
       }`}>
         <div className="h-full flex flex-col">
           {/* Header */}
-          <div className="p-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+          <div className="p-6 bg-gradient-to-r from-secondary to-secondary text-secondary-foreground">
             <h2 className="text-xl font-bold mb-2">{section.title}</h2>
-            <div className="flex items-center gap-4 text-sm text-blue-100">
+            <div className="flex items-center gap-4 text-sm text-secondary-foreground/80">
               <div className="flex items-center gap-1">
                 <Clock className="w-4 h-4" />
                 <span>{totalReadingTime} min read</span>
@@ -66,11 +66,11 @@ export function SectionSidebar({
                 <span>{completionPercentage}% complete</span>
               </div>
             </div>
-            
+
             {/* Progress Bar */}
-            <div className="mt-3 bg-blue-500/30 rounded-full h-2">
+            <div className="mt-3 bg-secondary/30 rounded-full h-2">
               <div 
-                className="bg-blue-300 h-2 rounded-full transition-all duration-500"
+                className="bg-primary/70 h-2 rounded-full transition-all duration-500"
                 style={{ width: `${completionPercentage}%` }}
               />
             </div>
@@ -85,9 +85,9 @@ export function SectionSidebar({
                   <div key={group.title} className="border-b border-gray-100 pb-4 mb-4 last:border-b-0">
                     <button
                       onClick={() => setActiveGroup(activeGroup === group.title ? null : group.title)}
-                      className="w-full text-left p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 flex items-center justify-between group"
+                      className="w-full text-left p-3 rounded-lg hover:bg-muted transition-colors duration-200 flex items-center justify-between group"
                     >
-                      <span className="font-medium text-gray-800 group-hover:text-blue-600">
+                      <span className="font-medium text-gray-800 group-hover:text-foreground">
                         {group.title}
                       </span>
                       <ChevronRight className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
@@ -110,7 +110,7 @@ export function SectionSidebar({
                               onClick={() => onQAClick(qa.id)}
                               className={`w-full text-left p-2 rounded text-sm transition-all duration-200 flex items-start gap-2 ${
                                 isActive 
-                                  ? 'bg-blue-100 text-blue-800 border-l-3 border-blue-600' 
+                                  ? 'bg-primary/10 text-primary border-l-3 border-primary' 
                                   : 'hover:bg-gray-50 text-gray-600 hover:text-gray-800'
                               }`}
                             >
@@ -139,7 +139,7 @@ export function SectionSidebar({
                       onClick={() => onQAClick(qa.id)}
                       className={`w-full text-left p-3 rounded-lg text-sm transition-all duration-200 flex items-start gap-2 ${
                         isActive 
-                          ? 'bg-blue-100 text-blue-800 border-l-4 border-blue-600' 
+                          ? 'bg-primary/10 text-primary border-l-4 border-primary' 
                           : 'hover:bg-gray-50 text-gray-600 hover:text-gray-800'
                       }`}
                     >

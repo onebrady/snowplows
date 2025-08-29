@@ -108,15 +108,15 @@ function LazyContentRenderer({
       
       {/* Downloads */}
       {section.downloads && section.downloads.length > 0 && (
-        <Card className="border-2 border-blue-100 bg-gradient-to-br from-blue-50/50 to-blue-100/30">
+        <Card className="border-2 border-border bg-gradient-to-br from-muted to-white">
           <CardHeader className="pb-4">
-            <CardTitle className="text-xl font-bold text-blue-900 flex items-center gap-3">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center shadow-sm">
+            <CardTitle className="text-xl font-bold text-foreground flex items-center gap-3">
+              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-sm border border-border">
                 <span className="text-white text-sm font-bold">📄</span>
               </div>
               Resource Downloads
             </CardTitle>
-            <p className="text-sm text-blue-700">Essential guides and documentation for your reference</p>
+            <p className="text-sm text-muted-foreground">Essential guides and documentation for your reference</p>
           </CardHeader>
           <CardContent>
             <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
@@ -126,7 +126,7 @@ function LazyContentRenderer({
                   href={download.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center p-5 bg-white border-2 border-blue-200 rounded-xl hover:border-blue-400 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className="group flex items-center p-5 bg-white border-2 border-border rounded-xl hover:border-primary/40 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                   onClick={() => emitAnalytics("download_click", { 
                     section: section.slug, 
                     download: download.label 
@@ -141,14 +141,14 @@ function LazyContentRenderer({
                       <div className="w-7 h-0.5 bg-red-300 rounded mt-1"></div>
                     </div>
                     {/* Download arrow indicator */}
-                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-accent rounded-full flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300">
                       <span className="text-white text-xs">↓</span>
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300 leading-tight">
+                    <h4 className="font-semibold text-gray-900 group-hover:text-primary transition-colors duration-300 leading-tight">
                       {download.label}
                     </h4>
                     <p className="text-sm text-gray-500 mt-1 group-hover:text-gray-600 transition-colors duration-300">
@@ -158,9 +158,9 @@ function LazyContentRenderer({
                     {/* Progress indicator */}
                     <div className="flex items-center gap-2 mt-3">
                       <div className="flex-1 h-1 bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                        <div className="h-full bg-gradient-to-r from-accent to-accent/80 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                       </div>
-                      <span className="text-xs text-gray-400 group-hover:text-blue-600 transition-colors duration-300 font-medium">
+                      <span className="text-xs text-gray-400 group-hover:text-primary transition-colors duration-300 font-medium">
                         Ready
                       </span>
                     </div>
@@ -168,7 +168,7 @@ function LazyContentRenderer({
                   
                   {/* Arrow indicator */}
                   <div className="ml-3 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-                    <div className="w-6 h-6 text-blue-600">
+                    <div className="w-6 h-6 text-primary">
                       <svg fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>
@@ -438,10 +438,10 @@ export function SinglePageKnowledge({ sections, loading = false }: SinglePageKno
           <div className="mt-5 flex items-center justify-center">
             <Link
               to="/quiz"
-              className="group inline-flex items-center gap-3 rounded-xl bg-blue-600 text-white px-6 md:px-10 h-[60px] max-h-[75px] shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="group inline-flex items-center gap-3 rounded-xl btn-accent px-6 md:px-10 h-[60px] max-h-[75px] shadow-md focus:outline-none focus:ring-2 focus:ring-accent/30 focus:ring-offset-2 focus:ring-offset-white"
             >
               <span className="text-base md:text-lg font-semibold">Get Equipment Recommendations</span>
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 text-white" />
             </Link>
           </div>
         </div>
@@ -454,8 +454,8 @@ export function SinglePageKnowledge({ sections, loading = false }: SinglePageKno
               return (
                 <Button
                   key={section.slug}
-                  variant={isActive ? "default" : "outline"}
-                  className={`flex-shrink-0 snap-start whitespace-nowrap truncate max-w-[9rem] md:max-w-[12rem] px-3 py-2 md:px-4 md:py-2.5 rounded-full text-[14px] md:text-[15px] font-medium h-auto min-h-[40px] ${isActive ? 'bg-blue-600 text-white' : ''}`}
+                  variant="outline"
+                  className={`flex-shrink-0 snap-start whitespace-nowrap truncate max-w-[9rem] md:max-w-[12rem] px-3 py-2 md:px-4 md:py-2.5 rounded-full text-[14px] md:text-[15px] font-medium h-auto min-h-[40px] ${isActive ? 'btn-accent text-white border-transparent' : 'btn-accent-soft'}`}
                   onClick={() => handleSectionChange(section.slug)}
                 >
                   {section.title}
@@ -478,10 +478,10 @@ export function SinglePageKnowledge({ sections, loading = false }: SinglePageKno
                   key={section.slug}
                   onClick={() => handleSectionChange(section.slug)}
                   disabled={isTransitioning}
-                  className={`relative text-center p-1.5 md:p-2.5 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-300 disabled:opacity-70 ${
+                  className={`relative text-center p-1.5 md:p-2.5 rounded-lg transition-all duration-200 focus:outline-none disabled:opacity-70 ${
                     isActive 
-                      ? 'bg-blue-600 text-white shadow-sm' 
-                      : 'bg-white border border-gray-200 hover:border-blue-300 text-gray-700'
+                      ? 'tile-accent shadow-md' 
+                      : 'tile-accent-soft'
                   }`}
                 >
                   {/* Completion indicator removed per request */}
@@ -489,24 +489,20 @@ export function SinglePageKnowledge({ sections, loading = false }: SinglePageKno
                   {/* Bookmark indicator */}
                   {stats && stats.bookmarked > 0 && (
                     <div className="absolute top-1.5 left-1.5">
-                      <Bookmark className="w-3.5 h-3.5 text-blue-500 fill-blue-500" />
+                      <Bookmark className="w-3.5 h-3.5 text-white/90 fill-white/90" />
                     </div>
                   )}
                   
-                  <div className={`w-8 h-8 md:w-10 md:h-10 mx-auto mb-2 rounded-full flex items-center justify-center transition-all duration-200 ${
-                    isActive ? 'bg-blue-500' : 'bg-blue-50'
-                  }`}>
-                    <IconComponent className={`w-4 h-4 md:w-5 md:h-5 ${isActive ? 'text-white' : 'text-blue-600'}`} />
+                  <div className={`w-8 h-8 md:w-10 md:h-10 mx-auto mb-2 rounded-full flex items-center justify-center transition-all duration-200 ${isActive ? 'bg-white/20' : 'bg-accent/10'}`}>
+                    <IconComponent className={`w-4 h-4 md:w-5 md:h-5 ${isActive ? 'text-white' : 'text-accent'}`} />
                   </div>
                   <h3 className={`font-semibold text-[12px] md:text-sm lg:text-[23px] mb-0.5 truncate ${
-                    isActive ? 'text-white' : 'text-gray-800'
+                    isActive ? 'text-white' : 'text-foreground'
                   }`}>
-                    {section.title}
+                  {section.title}
                   </h3>
                   <div className="space-y-1">
-                    <div className={`text-[10px] px-1.5 py-0.5 rounded-full inline-block ${
-                      isActive ? 'bg-blue-400/90 text-white' : 'bg-gray-100 text-gray-600'
-                    }`}>
+                    <div className={`text-[10px] px-1.5 py-0.5 rounded-full inline-block ${isActive ? 'bg-white/20 text-white' : 'bg-accent/10 text-accent'}`}>
                       {(stats?.total || section.qas.length)} topics
                     </div>
                   </div>
@@ -524,7 +520,7 @@ export function SinglePageKnowledge({ sections, loading = false }: SinglePageKno
             .map(section => (
               <div key={section.slug} className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
               {/* Section Header */}
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-5 md:p-6">
+              <div className="bg-gradient-to-r from-secondary to-secondary text-secondary-foreground p-5 md:p-6 border-b-2 border-accent">
                 <div className="flex items-center gap-6">
                   <div className="p-4 bg-white/20 rounded-full">
                     {React.createElement(sectionIcons[section.slug as keyof typeof sectionIcons] || Snowflake, {
@@ -533,8 +529,8 @@ export function SinglePageKnowledge({ sections, loading = false }: SinglePageKno
                   </div>
                   <div>
                     <h1 className="text-3xl md:text-4xl font-bold mb-1">{section.title}</h1>
-                    <p className="text-blue-100 text-base md:text-lg">{section.preview}</p>
-                    <div className="mt-2 text-blue-100/90 text-sm">{section.qas.length} topics</div>
+                    <p className="text-secondary-foreground/80 text-base md:text-lg">{section.preview}</p>
+                    <div className="mt-2 text-secondary-foreground/80 text-sm">{section.qas.length} topics</div>
                   </div>
                 </div>
               </div>
@@ -566,7 +562,7 @@ export function SinglePageKnowledge({ sections, loading = false }: SinglePageKno
       {showScrollToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-3 focus:ring-blue-300 transition-all duration-300"
+          className="fixed bottom-8 right-8 z-50 bg-primary text-primary-foreground p-4 rounded-full shadow-lg hover:bg-primary/90 focus:outline-none focus:ring-3 focus:ring-primary/30 transition-all duration-300"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-5 h-5" />

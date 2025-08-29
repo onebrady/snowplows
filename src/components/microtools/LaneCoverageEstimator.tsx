@@ -18,13 +18,13 @@ export function LaneCoverageEstimator() {
   const milesPerHour = useMemo(() => (speed * 0.9).toFixed(1), [speed]);
 
   return (
-    <div className="rounded-lg border-2 border-blue-100 p-4 bg-blue-50/50">
-      <h4 className="font-semibold mb-3 text-blue-900">Lane Coverage Estimator</h4>
+    <div className="rounded-lg border-2 border-border p-4 bg-muted">
+      <h4 className="font-semibold mb-3 text-foreground">Lane Coverage Estimator</h4>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <label className="text-sm">
           Blade width (ft)
           <select
-            className="mt-1 w-full rounded-md border border-blue-200 px-2 py-1 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+            className="mt-1 w-full rounded-md border border-border px-2 py-1 focus:border-primary focus:ring-1 focus:ring-primary outline-none"
             value={bladeWidth}
             onChange={(e) => {
               const v = Number(e.target.value);
@@ -46,7 +46,7 @@ export function LaneCoverageEstimator() {
         <label className="text-sm">
           Overlap (%)
           <input
-            className="mt-1 w-full accent-blue-600"
+            className="mt-1 w-full accent-[color:var(--color-accent)]"
             type="range"
             min={0}
             max={25}
@@ -61,12 +61,12 @@ export function LaneCoverageEstimator() {
               });
             }}
           />
-          <div className="text-xs text-blue-700 font-medium">{overlapPct}%</div>
+          <div className="text-xs text-accent font-medium">{overlapPct}%</div>
         </label>
         <label className="text-sm">
           Average speed (mph)
           <input
-            className="mt-1 w-full accent-blue-600"
+            className="mt-1 w-full accent-[color:var(--color-accent)]"
             type="range"
             min={5}
             max={25}
@@ -81,13 +81,13 @@ export function LaneCoverageEstimator() {
               });
             }}
           />
-          <div className="text-xs text-blue-700 font-medium">{speed} mph</div>
+          <div className="text-xs text-accent font-medium">{speed} mph</div>
         </label>
       </div>
-      <div className="mt-4 p-3 bg-blue-100/50 rounded-md border border-blue-200" role="status" aria-live="polite">
-        <div className="text-sm font-medium text-blue-900">
-          <span className="block">Coverage: ~{lanesPerHour} lanes/hour</span>
-          <span className="block text-blue-700">Distance: ~{milesPerHour} miles/hour cleared</span>
+      <div className="mt-4 p-3 bg-muted rounded-md border border-border" role="status" aria-live="polite">
+        <div className="text-sm font-medium text-foreground">
+          <span className="block">Coverage: ~<span className="text-accent font-semibold">{lanesPerHour}</span> lanes/hour</span>
+          <span className="block">Distance: ~<span className="text-accent font-semibold">{milesPerHour}</span> miles/hour cleared</span>
         </div>
       </div>
     </div>

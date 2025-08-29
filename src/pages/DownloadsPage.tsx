@@ -19,7 +19,7 @@ export default function DownloadsPage() {
               {s.downloads!.map((d) => (
                 <li key={d.href}>
                   <a
-                    className="text-blue-600 hover:underline"
+                    className="text-primary hover:underline"
                     href={d.href}
                     target="_blank"
                     rel="noreferrer"

@@ -51,13 +51,13 @@ export function GroupedQA({
         <Card
           key={g.id}
           id={g.id}
-          className="scroll-mt-32 border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow duration-300"
+          className="scroll-mt-32 border-l-4 border-border shadow-sm hover:shadow-md transition-shadow duration-300"
           data-testid="qa-group"
         >
-          <CardHeader className="pb-4 bg-blue-50/50">
+          <CardHeader className="pb-4 bg-muted">
             <div className="flex items-center justify-between gap-3">
               <CardTitle
-                className="text-[22px] leading-tight text-blue-900 font-bold"
+                className="text-[22px] leading-tight text-foreground font-bold"
                 data-testid="group-title"
               >
                 {g.title}
@@ -71,7 +71,7 @@ export function GroupedQA({
                       onClick={() =>
                         allExpanded ? collapseGroup(g.qaIds) : expandGroup(g.qaIds)
                       }
-                      className="inline-flex items-center gap-1 rounded-md border px-2.5 py-1.5 text-xs hover:bg-blue-50 border-blue-200 text-blue-700"
+                      className="inline-flex items-center gap-1 rounded-md border px-2.5 py-1.5 text-xs hover:bg-muted border-border text-foreground"
                       aria-label={allExpanded ? "Collapse all" : "Expand all"}
                     >
                       {allExpanded ? (
@@ -106,7 +106,7 @@ export function GroupedQA({
                     }
                     data-testid="qa-row"
                   >
-                    <HelpCircle className="h-5 w-5 mt-1 text-blue-600 flex-shrink-0" />
+                    <HelpCircle className="h-5 w-5 mt-1 text-muted-foreground flex-shrink-0" />
                     <div className="flex-1">
                       <div className="flex items-start justify-between gap-4">
                         <div className="font-medium text-[18px] leading-tight">
@@ -116,7 +116,7 @@ export function GroupedQA({
                           <button
                             type="button"
                             onClick={() => toggleQA(qa.id)}
-                            className="rounded-md border px-2 py-1 text-xs text-blue-700 border-blue-200 hover:bg-blue-50 inline-flex items-center gap-1"
+                            className="rounded-md border px-2 py-1 text-xs text-foreground border-border hover:bg-muted inline-flex items-center gap-1"
                             aria-expanded={expanded.has(qa.id)}
                             aria-controls={`qa-answer-${qa.id}`}
                           >
@@ -135,11 +135,11 @@ export function GroupedQA({
                               variant="ghost"
                               size="sm"
                               onClick={() => onBookmarkToggle(qa.id)}
-                              className="text-gray-400 hover:text-blue-600 p-1"
+                              className="text-gray-400 hover:text-primary p-1"
                               aria-label={bookmarkedQAs.has(qa.id) ? "Remove bookmark" : "Add bookmark"}
                             >
                               {bookmarkedQAs.has(qa.id) ? (
-                                <BookmarkCheck className="w-4 h-4 text-blue-600" />
+                                <BookmarkCheck className="w-4 h-4 text-primary" />
                               ) : (
                                 <Bookmark className="w-4 h-4" />
                               )}
@@ -193,27 +193,27 @@ export function JumpNav({ groups }: { groups: QAGroup[] }) {
 
   return (
     <div
-      className="sticky top-12 z-20 bg-white/95 backdrop-blur-sm border border-blue-100 rounded-lg px-3 py-2.5 text-sm overflow-x-auto shadow-sm mb-6"
+      className="sticky top-12 z-20 bg-white/95 backdrop-blur-sm border border-border rounded-lg px-3 py-2.5 text-sm overflow-x-auto shadow-sm mb-6"
       data-testid="jumpnav"
       role="navigation"
       aria-label="Section Navigation"
     >
       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
         <div className="flex items-center gap-2 flex-shrink-0">
-          <div className="w-2 h-2 bg-blue-500 rounded-full" />
-          <span className="font-semibold text-blue-800">Jump to:</span>
+          <div className="w-2 h-2 bg-accent rounded-full" />
+          <span className="font-semibold text-accent">Jump to:</span>
         </div>
         <div className="flex items-center gap-2 flex-wrap">
           {groups.map((g) => (
             <Button
               key={g.id}
               onClick={handleJump(g.id)}
-              variant={active === g.id ? "default" : "outline"}
+              variant="outline"
               size="sm"
               className={`text-xs sm:text-sm flex-shrink-0 transition-all duration-300 ${
                 active === g.id 
-                  ? "bg-blue-600 text-white shadow-md scale-105" 
-                  : "border-blue-200 hover:border-blue-400 hover:bg-blue-50"
+                  ? "btn-accent text-white border-transparent" 
+                  : "btn-accent-soft"
               }`}
               aria-current={active === g.id ? "true" : undefined}
             >

@@ -20,13 +20,13 @@ export function SaltUsageCalculator() {
   );
 
   return (
-    <div className="rounded-lg border-2 border-blue-100 p-4 bg-blue-50/50">
-      <h4 className="font-semibold mb-3 text-blue-900">Salt Usage Quick-Check</h4>
+    <div className="rounded-lg border-2 border-border p-4 bg-muted">
+      <h4 className="font-semibold mb-3 text-foreground">Salt Usage Quick-Check</h4>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <label className="text-sm">
           Application rate (lbs/lane-mi)
           <select
-            className="mt-1 w-full rounded-md border border-blue-200 px-2 py-1 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+            className="mt-1 w-full rounded-md border border-border px-2 py-1 focus:border-primary focus:ring-1 focus:ring-primary outline-none"
             value={rate}
             onChange={(e) => {
               const v = Number(e.target.value);
@@ -48,7 +48,7 @@ export function SaltUsageCalculator() {
         <label className="text-sm">
           Lane-miles
           <input
-            className="mt-1 w-full rounded-md border border-blue-200 px-2 py-1 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+            className="mt-1 w-full rounded-md border border-border px-2 py-1 focus:border-primary focus:ring-1 focus:ring-primary outline-none"
             type="number"
             min={0}
             value={laneMiles}
@@ -66,7 +66,7 @@ export function SaltUsageCalculator() {
         <label className="text-sm">
           Storms/month
           <select
-            className="mt-1 w-full rounded-md border border-blue-200 px-2 py-1 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+            className="mt-1 w-full rounded-md border border-border px-2 py-1 focus:border-primary focus:ring-1 focus:ring-primary outline-none"
             value={storms}
             onChange={(e) => {
               const v = Number(e.target.value);
@@ -86,10 +86,10 @@ export function SaltUsageCalculator() {
           </select>
         </label>
       </div>
-      <div className="mt-4 p-3 bg-blue-100/50 rounded-md border border-blue-200" role="status" aria-live="polite">
-        <div className="text-sm font-medium text-blue-900">
-          <span className="block">Monthly usage: ~{monthlyTons} tons</span>
-          <span className="block text-blue-700">Season estimate: ~{seasonTons} tons</span>
+      <div className="mt-4 p-3 bg-muted rounded-md border border-border" role="status" aria-live="polite">
+        <div className="text-sm font-medium text-foreground">
+          <span className="block">Monthly usage: ~<span className="text-accent font-semibold">{monthlyTons}</span> tons</span>
+          <span className="block">Season estimate: ~<span className="text-accent font-semibold">{seasonTons}</span> tons</span>
         </div>
       </div>
     </div>

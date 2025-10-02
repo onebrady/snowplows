@@ -31,7 +31,9 @@ export function SectionSidebar({
     return total + calculateReadingTime(qa.question + " " + qa.answer);
   }, 0);
 
-  const completionPercentage = Math.round((completedQAs.size / section.qas.length) * 100);
+  // Filter completedQAs to only count those from the current section
+  const sectionCompletedCount = section.qas.filter(qa => completedQAs.has(qa.id)).length;
+  const completionPercentage = Math.round((sectionCompletedCount / section.qas.length) * 100);
 
   return (
     <>

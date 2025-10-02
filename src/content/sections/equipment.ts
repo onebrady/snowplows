@@ -201,17 +201,11 @@ export const Equipment: KnowledgeSection = {
   hasSaltUsageTool: true,
   relatedSlugs: ["integration", "operations", "procurement"],
   downloads: [
-    {
-      label: "ARM Snow Plows PDF",
-      href: "/wp-content/uploads/2025/05/ARM-TruckCorp-Snow-Plows.pdf",
-    },
+
     {
       label: "TG-505 Under-tailgate Spreader",
       href: "https://www.truckcorpllc.com/wp-content/uploads/2021/06/2021-TG-505-Spreader-Literature.pdf",
     },
-    {
-      label: "ARM Spreaders PDF",
-      href: "/wp-content/uploads/2025/05/ARM-TruckCorp-Spreaders.pdf",
-    },
+
   ],
 };

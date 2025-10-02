@@ -201,11 +201,8 @@ export const Integration: KnowledgeSection = {
   downloads: [
     {
       label: "Olympus Controls Manual",
-      href: "/wp-content/uploads/2025/05/Olympus_Hydraulic_Control_System_v1-1.pdf",
+      href: "https://truckcorpllc.com/wp-content/uploads/2024/12/Olympus_Hydraulic_Control_System_v1-1.pdf",
     },
-    {
-      label: "ARM Dump Body PDF",
-      href: "/wp-content/uploads/2025/05/ARM-TruckCorp-Dump-Body.pdf",
-    },
+
   ],
 };

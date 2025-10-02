@@ -51,10 +51,16 @@ Each knowledge section contains:
 
 ### Routing & Navigation
 Uses HashRouter for WordPress compatibility. Routes:
-- `/` - Landing page with knowledge grid
-- `/section/:slug` - Individual knowledge section pages  
+- `/` - Single-page landing with all knowledge content
+- `/section/:slug` - Individual knowledge section pages
 - `/quiz` - Interactive equipment recommendation quiz
 - `/downloads` - Resource downloads page
+
+### Import Aliases
+The project uses `@` as an alias for the `src/` directory (configured in vite.config.ts):
+```typescript
+import { Component } from "@/components/Component";
+```
 
 ### WordPress Integration
 The WordPress plugin (`wp-plugin/mtech-knowledge-hub/`) handles:
@@ -86,7 +92,7 @@ Comprehensive Playwright test suite covering:
 ### WordPress Development
 - Enable HMR: Add `define('MTECH_KH_DEV', true);` to wp-config.php
 - Use shortcode: `[mtech_knowledge_hub]` or `[mtech_knowledge_hub id="custom-id"]`
-- Local WordPress setup available via `wp-local/docker-compose.yml`
+- Plugin files located in `wp-plugin/mtech-knowledge-hub/`
 
 ### Content Guidelines
 - QA answers support basic HTML markup
